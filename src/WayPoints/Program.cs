@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 namespace WayPoints
 {
     class Program
@@ -23,7 +21,7 @@ namespace WayPoints
                         {
                             Console.WriteLine("No way points in file");
                         }
-                        var wayPointsCategorizations = WayPointsAggregationApi.GetCategorizationForEachWayPoint(wayPoints);
+                        var wayPointsCategorizations = WayPointsCategorizationApi.GetCategorizationForEachWayPoint(wayPoints);
                         Console.WriteLine("Way point\tDistance speeding\tDuration speeding\tTotal distance\tTotal duration");
                         int i = 0;
                         foreach (var wayPoint in wayPointsCategorizations)

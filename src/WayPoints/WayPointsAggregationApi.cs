@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WayPoints
 {
-    public class WayPointsAggregationApi
+    public class WayPointsCategorizationApi
     {
-        public static IEnumerable<WayPointAggregation> GetCategorizationForEachWayPoint(IEnumerable<WayPoint> wayPoints)
+        public static IEnumerable<WayPointCategory> GetCategorizationForEachWayPoint(IEnumerable<WayPoint> wayPoints)
         {
-            var aggregatedWayPointData = new WayPointAggregation[wayPoints.Count()];
+            var aggregatedWayPointData = new WayPointCategory[wayPoints.Count()];
             var wayPointsArr = wayPoints.ToArray();
             double distanceSpeeding = 0;
             TimeSpan durationSpeeding = default(TimeSpan);
             TimeSpan totalDuration = default(TimeSpan);
             double totalDistance = 0;
-            aggregatedWayPointData[0] = new WayPointAggregation
+            aggregatedWayPointData[0] = new WayPointCategory
             {
                 DistanceSpeeding = distanceSpeeding,
                 DurationSpeeding = durationSpeeding,
@@ -29,7 +27,7 @@ namespace WayPoints
                 durationSpeeding = durationSpeeding + WayPointsApi.CalculateDurationSpeedingTo(wayPointsArr[i], wayPointsArr[i - 1]);
                 totalDuration = totalDuration + WayPointsApi.DurationTo(wayPointsArr[i], wayPointsArr[i - 1]);
                 totalDistance = totalDistance + WayPointsApi.DistanceTo(wayPointsArr[i], wayPointsArr[i - 1]);
-                aggregatedWayPointData[i] = new WayPointAggregation
+                aggregatedWayPointData[i] = new WayPointCategory
                 {
                     DistanceSpeeding = distanceSpeeding,
                     DurationSpeeding = durationSpeeding,
@@ -40,12 +38,4 @@ namespace WayPoints
             return aggregatedWayPointData;
         }
     }
-    public class WayPointAggregation
-    {
-        public double TotalDistance { get; set; }
-        public TimeSpan TotalDuration { get; set; }
-        public double DistanceSpeeding { get; set; }
-        public TimeSpan DurationSpeeding { get; set; }
-    }
-
 }
