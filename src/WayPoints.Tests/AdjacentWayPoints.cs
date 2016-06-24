@@ -2,7 +2,7 @@
 using NUnit.Framework;
 namespace WayPoints.Tests
 {
-    public class SpecificationsForAdjacentWayPoints
+    public class AdjacentWayPoints
     {
         //Speeding duration and distance is calculated from the previous way point 
         [Test]

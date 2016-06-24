@@ -20,6 +20,7 @@ namespace WayPoints
                         if (!wayPoints.Any())
                         {
                             Console.WriteLine("No way points in file");
+                            continue;
                         }
                         var wayPointsCategorizations = WayPointsCategorizationApi.GetCategorizationForEachWayPoint(wayPoints);
                         Console.WriteLine("Way point\tDistance speeding\tDuration speeding\tTotal distance\tTotal duration");

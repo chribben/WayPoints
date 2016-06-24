@@ -48,7 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SpecificationsForAdjacentWayPoints.cs" />
+    <Compile Include="WayPointsCategorizationApi.cs" />
+    <Compile Include="AdjacentWayPoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

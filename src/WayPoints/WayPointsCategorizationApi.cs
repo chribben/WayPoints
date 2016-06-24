@@ -8,6 +8,8 @@ namespace WayPoints
     {
         public static IEnumerable<WayPointCategory> GetCategorizationForEachWayPoint(IEnumerable<WayPoint> wayPoints)
         {
+            if (wayPoints == null || !wayPoints.Any())
+                return new WayPointCategory[0];
             var aggregatedWayPointData = new WayPointCategory[wayPoints.Count()];
             var wayPointsArr = wayPoints.ToArray();
             double distanceSpeeding = 0;
